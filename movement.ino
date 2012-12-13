@@ -129,3 +129,8 @@ void geriyeDon(){
 void moveIleri(){
 
 }
+
+/* Durma */
+void dur(){
+	
+}
