@@ -1,0 +1,1 @@
+const int DUVAR_SABITI = 0; // Duvarin olabilecegi max uzaklık
