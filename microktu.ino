@@ -10,12 +10,8 @@ void setup(){
 void loop(){
 	while(!hedefBulundu){
 
-		sagDuvar();
-		solDuvar();
-		onDuvar();
-
-		//aciklariBul();
-		//kucukleriBul();
+		aciklariBul();
+		kucukleriBul();
 
 		siradakiHareket(robotunYonu);
 
