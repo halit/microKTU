@@ -66,59 +66,37 @@ void siradakiHareket(int robotunYonu){
 	switch(robotunYonu){
 
 		/* Robotun yonu doguya dogru ise */
-		case 0:
-			// Sag duvar acik ve degeri kucuk ise
-			if(kucukler[1] && aciklar[1]){
+		case 0:			
+			if(kucukler[1] && aciklar[1]){ // Sag duvar acik ve degeri kucuk ise
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}
-
-			// On duvar acik ve degeri kucuk ise
-			if(kucukler[0] && aciklar[0]){
+			}else if(kucukler[0] && aciklar[0]){ // On duvar acik ve degeri kucuk ise
 				moveDogu(robotunYonu);
 				robotunYonu = 0;
-			}
-
-			// Sol duvar acik ve degeri kucuk ise
-			if(kucukler[2] && aciklar[2]){
+			}else if(kucukler[2] && aciklar[2]){ // Sol duvar acik ve degeri kucuk ise
 				moveKuzey(robotunYonu);
 				robotunYonu = 2;
-			}
-			
-			// On,Sag ve Sol kapali ise geri don
-			if(!aciklar[0] && !aciklar[1] && !aciklar[2]){
+			}else if(!aciklar[0] && !aciklar[1] && !aciklar[2]){ // On,Sag ve Sol kapali ise geri don
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}	
-
-			// On kapali, sag ve sol acik degerleri buyukse geri don
-			if(!aciklar[0] && aciklar[1] && aciklar[2] && !kucukler[1] && !kucukler[2]){
+			}else if(!aciklar[0] && aciklar[1] && aciklar[2] && !kucukler[1] && !kucukler[2]){ // On kapali, sag ve sol acik degerleri buyukse geri don
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}
-
-			// @TODO: harita guncelleme yapilabilir
-
-			// sag aciksa oraya don
-			if(aciklar[1]){
+			// @TODO: harita guncelleme eklenebilir
+			}else if(aciklar[1]){ // sag aciksa oraya don
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}
-
-			// on aciksa oraya git
-			if(aciklar[0]){
+			}else if(aciklar[0]){ // on aciksa oraya git
 				moveDogu(robotunYonu);
 				robotunYonu = 0;
-			}
-
-			// sol aciksa oraya git
-			if(aciklar[2]){
+			}else if(aciklar[2]){ // sol aciksa oraya git
 				moveKuzey(robotunYonu);
 				robotunYonu = 2;
+			}else{
+				dur();
 			}
 
 			// @TODO: baska durumlar eklenebilir
-
 			break;
 		
 		/* Robotun yonu guneye dogru ise */			
@@ -127,54 +105,33 @@ void siradakiHareket(int robotunYonu){
 			if(kucukler[3] && aciklar[3]){
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}
-
-			// On duvar acik ve degeri kucuk ise
-			if(kucukler[1] && aciklar[1]){
+			}else if(kucukler[1] && aciklar[1]){ // On duvar acik ve degeri kucuk ise
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}
-
-			// Sol duvar acik ve degeri kucuk ise
-			if(kucukler[0] && aciklar[0]){
+			}else if(kucukler[0] && aciklar[0]){ // Sol duvar acik ve degeri kucuk ise
 				moveBati(robotunYonu);
 				robotunYonu = 0;
-			}
-			
-			// On,Sag ve Sol kapali ise geri don
-			if(!aciklar[0] && !aciklar[1] && !aciklar[3]){
+			}else if(!aciklar[0] && !aciklar[1] && !aciklar[3]){ // On,Sag ve Sol kapali ise geri don
 				moveKuzey(robotunYonu);
 				robotunYonu = 2;
-			}	
-
-			// On kapali, sag ve sol acik degerleri buyukse geri don
-			if(!aciklar[1] && aciklar[0] && aciklar[3] && !kucukler[0] && !kucukler[3]){
+			}else if(!aciklar[1] && aciklar[0] && aciklar[3] && !kucukler[0] && !kucukler[3]){ // On kapali, sag ve sol acik degerleri buyukse geri don
 				moveKuzey(robotunYonu);
-				robotunYonu = 2;
-			}
-
+				robotunYonu = 2;			
 			// @TODO: harita guncelleme yapilabilir
-
-			// sag aciksa oraya don
-			if(aciklar[3]){
+			}else if(aciklar[3]){ // sag aciksa oraya don
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}
-
-			// on aciksa oraya git
-			if(aciklar[1]){
+			}else if(aciklar[1]){ // on aciksa oraya git
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}
-
-			// sol aciksa oraya git
-			if(aciklar[0]){
+			}else if(aciklar[0]){ // sol aciksa oraya git
 				moveDogu(robotunYonu);
 				robotunYonu = 0;
-			}
+			}else{
+				dur();
+			}			
 
 			// @TODO: baska durumlar eklenebilir
-
 			break;
 
 		/* Robotun yonu kuzeye dogru ise */
@@ -183,54 +140,33 @@ void siradakiHareket(int robotunYonu){
 			if(kucukler[0] && aciklar[0]){
 				moveDogu(robotunYonu);
 				robotunYonu = 0;
-			}
-
-			// On duvar acik ve degeri kucuk ise
-			if(kucukler[2] && aciklar[2]){
+			}else if(kucukler[2] && aciklar[2]){ // On duvar acik ve degeri kucuk ise
 				moveKuzey(robotunYonu);
 				robotunYonu = 2;
-			}
-
-			// Sol duvar acik ve degeri kucuk ise
-			if(kucukler[3] && aciklar[3]){
+			}else if(kucukler[3] && aciklar[3]){ // Sol duvar acik ve degeri kucuk ise
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}
-			
-			// On,Sag ve Sol kapali ise geri don
-			if(!aciklar[0] && !aciklar[2] && !aciklar[3]){
+			}else if(!aciklar[0] && !aciklar[2] && !aciklar[3]){ // On,Sag ve Sol kapali ise geri don
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}	
-
-			// On kapali, sag ve sol acik degerleri buyukse geri don
-			if(!aciklar[2] && aciklar[0] && aciklar[3] && !kucukler[0] && !kucukler[3]){
+			}else if(!aciklar[2] && aciklar[0] && aciklar[3] && !kucukler[0] && !kucukler[3]){ // On kapali, sag ve sol acik degerleri buyukse geri don
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}
-
 			// @TODO: harita guncelleme yapilabilir
-
-			// sag aciksa oraya don
-			if(aciklar[0]){
+			}else if(aciklar[0]){ // sag aciksa oraya don
 				moveDogu(robotunYonu);
 				robotunYonu = 0;
-			}
-
-			// on aciksa oraya git
-			if(aciklar[2]){
+			}else if(aciklar[2]){ // on aciksa oraya git
 				moveKuzey(robotunYonu);
 				robotunYonu = 2;
-			}
-
-			// sol aciksa oraya git
-			if(aciklar[3]){
+			}else if(aciklar[3]){ // sol aciksa oraya git
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}
+			}else{
+				dur();
+			}		
 
 			// @TODO: baska durumlar eklenebilir
-
 			break;
 		
 		/* Robotun yonu batiya dogru ise */
@@ -239,54 +175,33 @@ void siradakiHareket(int robotunYonu){
 			if(kucukler[2] && aciklar[2]){
 				moveKuzey(robotunYonu);
 				robotunYonu = 2;
-			}
-
-			// On duvar acik ve degeri kucuk ise
-			if(kucukler[3] && aciklar[3]){
+			}else if(kucukler[3] && aciklar[3]){ // On duvar acik ve degeri kucuk ise
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}
-
-			// Sol duvar acik ve degeri kucuk ise
-			if(kucukler[1] && aciklar[1]){
+			}else if(kucukler[1] && aciklar[1]){ // Sol duvar acik ve degeri kucuk ise
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}
-			
-			// On,Sag ve Sol kapali ise geri don
-			if(!aciklar[1] && !aciklar[2] && !aciklar[3]){
+			}else if(!aciklar[1] && !aciklar[2] && !aciklar[3]){ // On,Sag ve Sol kapali ise geri don
 				moveDogu(robotunYonu);
 				robotunYonu = 0;
-			}	
-
-			// On kapali, sag ve sol acik degerleri buyukse geri don
-			if(!aciklar[3] && aciklar[1] && aciklar[2] && !kucukler[1] && !kucukler[2]){
+			}else if(!aciklar[3] && aciklar[1] && aciklar[2] && !kucukler[1] && !kucukler[2]){ // On kapali, sag ve sol acik degerleri buyukse geri don
 				moveDogu(robotunYonu);
 				robotunYonu = 0;
-			}
-
 			// @TODO: harita guncelleme yapilabilir
-
-			// sag aciksa oraya don
-			if(aciklar[2]){
+			}else if(aciklar[2]){ // sag aciksa oraya don
 				moveKuzey(robotunYonu);
 				robotunYonu = 2;
-			}
-
-			// on aciksa oraya git
-			if(aciklar[3]){
+			}else if(aciklar[3]){ // on aciksa oraya git
 				moveBati(robotunYonu);
 				robotunYonu = 3;
-			}
-
-			// sol aciksa oraya git
-			if(aciklar[1]){
+			}else if(aciklar[1]){ // sol aciksa oraya git
 				moveGuney(robotunYonu);
 				robotunYonu = 1;
-			}
+			}else{
+				dur();
+			}	
 
 			// @TODO: baska durumlar eklenebilir	
-
 			break;
 	}
 }
