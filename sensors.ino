@@ -1,7 +1,8 @@
 /* Sensor Degerleri */
 int SAG_SENSOR = 0;
 int SOL_SENSOR = 0;
-int ON_SENSOR = 0;
+int ON_SENSOR  = 0;
+int ALT_SENSOR = 0;
 
 /* Sag sensorden veri oku */
 void sagOku(){
@@ -19,6 +20,12 @@ void solOku(){
 void onOku(){
 	ON_SENSOR = // deger alma islemi
 	return ON_SENSOR;
+}
+
+/* Alt sensorden veri oku */
+void altOku(){
+	ALT_SENSOR = // deger alma islemi
+	return ALT_SENSOR;
 }
 
 /* Sensorden gelen degeri cm turune cevirir */
@@ -51,4 +58,11 @@ int onDuvar(){
 		return 1;
 	}	
 
+}
+
+int hedefBul(){
+	int deger = altOku();
+	if(deger > 0){ // @TODO: degerler stabilize edilmeli
+		return 1;
+	}
 }

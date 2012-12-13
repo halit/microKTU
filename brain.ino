@@ -34,20 +34,24 @@ void kucukleriBul(int *kucukler){
 void aciklariBul(int *aciklar){
 	int aciklar[3] = {0,0,0,1}; // Donecek degerler tanimlanir
 
+	// Sol tarafta duvar yoksa doneceklere ekle
 	if(!solDuvar){
 		aciklar[2]=1;
 	}
 
+	// Sag tarafta duvar yoksa doneceklere ekle
 	if(!sagDuvar){
 		aciklar[1]=1;
 	}
 
+	// On tarafta duvar yoksa doneceklere ekle
 	if(!onDuvar){
 		aciklar[0]=1;
 	}		
 }
 
 /* Robotun yonune gore siradaki hareketi belirler */
+/* @TODO: if'leri else if haline getir */
 void siradakiHareket(int robotunYonu){
 	
 	/* Pointer ile kucukler dizisi esitleniyor 
