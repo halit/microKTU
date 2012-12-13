@@ -1,7 +1,7 @@
 /* Sensor Degerleri */
-SAG_SENSOR = 0;
-SOL_SENSOR = 0;
-ON_SENSOR = 0;
+int SAG_SENSOR = 0;
+int SOL_SENSOR = 0;
+int ON_SENSOR = 0;
 
 /* Sag sensorden veri oku */
 void sagOku(){
@@ -28,7 +28,7 @@ int uzaklik(deger){
 
 /* Sag tarafta duvar tespiti. Var ise 1 doner */
 int sagDuvar(){
-	deger = sagOku();
+	int deger = sagOku();
 	if(uzaklik(deger) < DUVAR_SABITI ){
 		return 1;
 	}
@@ -37,7 +37,7 @@ int sagDuvar(){
 
 /* Sol tarafta duvar tespiti. Var ise 1 doner */
 int solDuvar(){
-	deger = solOku();
+	int deger = solOku();
 	if(uzaklik(deger) < DUVAR_SABITI ){
 		return 1;
 	}	
@@ -46,7 +46,7 @@ int solDuvar(){
 
 /* On tarafta duvar tespiti. Var ise 1 doner */
 int onDuvar(){
-	deger = onOku();
+	int deger = onOku();
 	if(uzaklik(deger) < DUVAR_SABITI ){
 		return 1;
 	}	

@@ -1,29 +1,29 @@
 /* Kuzeye Hareket */
-void moveKuzey(robotunYonu){
+void moveKuzey(int robotunYonu){
 	turnKuzey(robotunYonu);
 	moveIleri();
 }
 
 /* Guneye Hareket */
-void moveGuney(robotunYonu){
+void moveGuney(int robotunYonu){
 	turnGuney(robotunYonu);
 	moveIleri();
 }
 
 /* Batiya Hareket */
-void moveBati(robotunYonu){
+void moveBati(int robotunYonu){
 	turnBati(robotunYonu);
 	moveIleri();
 }
 
 /* Doguya Hareket */
-void moveDogu(robotunYonu){
+void moveDogu(int robotunYonu){
 	turnDogu(robotunYonu);
 	moveIleri();
 }
 
 /* Kuzeye Donus */
-void turnKuzey(robotunYonu){
+void turnKuzey(int robotunYonu){
 	switch(robotunYonu){
 		case 0:
 			solaDon(); // @TODO: stabilize olmali
@@ -45,7 +45,7 @@ void turnKuzey(robotunYonu){
 }
 
 /* Guneye Donus */
-void turnGuney(robotunYonu){
+void turnGuney(int robotunYonu){
 	switch(robotunYonu){
 		case 0:
 			sagaDon(); // @TODO: stabilize olmali
@@ -67,7 +67,7 @@ void turnGuney(robotunYonu){
 }
 
 /* Batiya Donus */
-void turnBati(robotunYonu){
+void turnBati(int robotunYonu){
 	switch(robotunYonu){
 		case 0:
 			geriyeDon(); // @TODO: stabilize olmali
@@ -89,7 +89,7 @@ void turnBati(robotunYonu){
 }
 
 /* Doguya Donus */
-void turnDogu(robotunYonu){
+void turnDogu(int robotunYonu){
 	switch(robotunYonu){
 		case 0:
 			break;
