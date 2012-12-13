@@ -50,7 +50,7 @@ void aciklariBul(int *aciklar){
 /* Robotun yonune gore siradaki hareketi belirler */
 void siradakiHareket(int robotunYonu){
 	
-	/* Pointer ile kucukler degeri esitleniyor 
+	/* Pointer ile kucukler dizisi esitleniyor 
 	   @ FIX: Calismayabilir.Kontrol et.
 	*/
 	int kucukler[3];
