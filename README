@@ -1,0 +1,5 @@
+MicroKTU is a simple maze solver robot project using Arduino.
+
+We don't want to use only one algorithm.Because of it, we used to mix of any maze solve algorithms.
+
+Writing for Arduino but this code isn't work now.
