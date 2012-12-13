@@ -48,7 +48,7 @@ void aciklariBul(int *aciklar){
 }
 
 /* Robotun yonune gore siradaki hareketi belirler */
-void siradakiHareket(){
+void siradakiHareket(robotunYonu){
 	switch(robotunYonu){
 
 		/* Robotun yonu doguya dogru ise */
