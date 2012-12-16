@@ -1,5 +1,5 @@
-int robotunYonu  = 0;
-int hedefBulundu = 0;
+int robotunYonu  = 0; // Robotun bulundugu konuma gore yonu
+int hedefBulundu = 0; // Hedefin bulunduguna dair degisken
 int algoritmaSecenek = 0; // 0 dalga-sag duvar, 1 sag duvar, 2 special
 
 /* Robotun ana omurgasi */
@@ -18,8 +18,8 @@ void loop(){
 
 			}else{
 
-				aciklariBul();
-				kucukleriBul();
+				//aciklariBul();
+				//kucukleriBul();
 
 				siradakiHareket(robotunYonu);
 			}
@@ -51,5 +51,17 @@ void loop(){
 			}
 		}
 	}
+
+	}else if(algoritmaSecenek == 2){ // special algoritma
+		while(!hedefBulundu){
+
+			if(hedefBul()){
+				hedefBulundu = 1;
+				
+			}else{
+			 //kodlar buraya
+			}
+		}
+	}	
 
 }

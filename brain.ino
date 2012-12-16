@@ -56,6 +56,8 @@ void siradakiHareket(int robotunYonu){
 	
 	/* Pointer ile kucukler dizisi esitleniyor 
 	   @ FIX: Calismayabilir.Kontrol et.
+	   @ TODO: simdikiKonumDegeri her donuste guncellenecek
+	   @ TODO: simdikiKoordinat her donuste guncellenecek
 	*/
 	int kucukler[3];
 	kucukleriBul(&kucukler);
@@ -201,7 +203,7 @@ void siradakiHareket(int robotunYonu){
 				dur();
 			}	
 
-			// @TODO: baska durumlar eklenebilir	
+			// @TODO: baska durumlar eklenebilir	6
 			break;
 	}
 }
