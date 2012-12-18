@@ -35,17 +35,17 @@ void aciklariBul(int *aciklar){
 	int aciklar[3] = {0,0,0,1}; // Donecek degerler tanimlanir
 
 	// Sol tarafta duvar yoksa doneceklere ekle
-	if(!solDuvar){
+	if(!solDuvar()){
 		aciklar[2]=1;
 	}
 
 	// Sag tarafta duvar yoksa doneceklere ekle
-	if(!sagDuvar){
+	if(!sagDuvar()){
 		aciklar[1]=1;
 	}
 
 	// On tarafta duvar yoksa doneceklere ekle
-	if(!onDuvar){
+	if(!onDuvar()){
 		aciklar[0]=1;
 	}		
 }
@@ -206,4 +206,72 @@ void siradakiHareket(int robotunYonu){
 			// @TODO: baska durumlar eklenebilir	6
 			break;
 	}
+}
+
+/* Lee algoritmasi mantigi ile aynı algoritma */
+
+void isiniTakipEt(int robotunYonu){
+
+	switch(robotunYonu){
+		case 0:
+			/* Robotun yonu doguya dogru ise surekli olarak yukariya gitmeye calisir
+			   Eger sol kapali ise sirayla diger yonleri dener
+			*/
+			if(!solDuvar()){
+				moveKuzey(robotunYonu);
+			}else if(!onDuvar()){
+				moveDogu(robotunYonu);
+			}else if(solDuvar() && onDuvar() && !sagDuvar()){
+				moveGuney(robotunYonu);
+			}else{
+				moveBati(robotunYonu);
+			}
+			break;
+
+		case 1:
+			/* Robotun yonu guneye dogru ise surekli olarak yukariya gitmeye calisir.
+			   Eger sol kapali ise sirayla diger yonleri dener
+			*/
+			if(!solDuvar()){
+				moveDogu(robotunYonu);
+			}else if(!onDuvar()){
+				moveGuney(robotunYonu);
+			}else if(solDuvar() && onDuvar() && !sagDuvar()){
+				moveBati(robotunYonu);
+			}else{
+				moveKuzey(robotunYonu);
+			}
+			break;
+
+		case 2:
+			/* Robotun yonu kuzeye dogru ise surekli olarak saga gitmeye calisir.
+			   Eger sag kapali ise sirayla diger yonleri dener
+			*/
+			if(!sagDuvar()){
+				moveDogu(robotunYonu);
+			}else if(!onDuvar()){
+				moveKuzey(robotunYonu);
+			}else if(sagDuvar() && onDuvar() && !solDuvar()){
+				moveBati(robotunYonu);
+			}else{
+				moveGuney(robotunYonu);
+			}
+			break;
+
+		case 3:
+			/* Robotun yonu batiya dogru ise surekli olarak saga gitmeye calisir.
+			   Eger sag kapali ise sirayla diger yonleri dener
+			*/
+			if(!sagDuvar()){
+				moveKuzey(robotunYonu);
+			}else if(!onDuvar()){
+				moveBati(robotunYonu);
+			}else if(sagDuvar() && onDuvar() && !solDuvar()){
+				moveGuney(robotunYonu);
+			}else{
+				moveDogu(robotunYonu);
+			}					
+			break;
+	}
+
 }

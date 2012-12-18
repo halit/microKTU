@@ -59,7 +59,7 @@ void loop(){
 				hedefBulundu = 1;
 				
 			}else{
-			 //kodlar buraya
+				isiniTakipEt();
 			}
 		}
 	}	
