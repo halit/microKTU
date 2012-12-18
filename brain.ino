@@ -206,9 +206,7 @@ void siradakiHareket(int robotunYonu){
 	}
 }
 
-/* Lee algoritmasi mantigi ile aynı algoritma 
-   @FIX: robotunYonu guncellenecek
-*/
+/* Lee algoritmasi mantigi ile aynı algoritma */
 int isiniTakipEt(int robotunYonu){
 	int solDuvar = solDuvar();
 	int sagDuvar = sagDuvar();
@@ -221,16 +219,16 @@ int isiniTakipEt(int robotunYonu){
 			*/
 			if(!solDuvar){
 				moveKuzey(robotunYonu);
-				return 2;
+				robotunYonu = 2;
 			}else if(!onDuvar){
 				moveDogu(robotunYonu);
-				return 0;
+				robotunYonu = 0;
 			}else if(solDuvar && onDuvar && !sagDuvar){
 				moveGuney(robotunYonu);
-				return 1;
+				robotunYonu = 1;
 			}else{
 				moveBati(robotunYonu);
-				return 3;
+				robotunYonu = 3;
 			}
 			break;
 
@@ -240,16 +238,16 @@ int isiniTakipEt(int robotunYonu){
 			*/
 			if(!solDuvar){
 				moveDogu(robotunYonu);
-				return 0;
+				robotunYonu = 0;
 			}else if(!onDuvar){
 				moveGuney(robotunYonu);
-				return 1;
+				robotunYonu = 1;
 			}else if(solDuvar && onDuvar && !sagDuvar){
 				moveBati(robotunYonu);
-				return 3;
+				robotunYonu = 3;
 			}else{
 				moveKuzey(robotunYonu);
-				return 2;
+				robotunYonu = 2;
 			}
 			break;
 
@@ -259,16 +257,16 @@ int isiniTakipEt(int robotunYonu){
 			*/
 			if(!sagDuvar){
 				moveDogu(robotunYonu);
-				return 0;
+				robotunYonu = 0;
 			}else if(!onDuvar){
 				moveKuzey(robotunYonu);
-				return 2;
+				robotunYonu = 2;
 			}else if(sagDuvar && onDuvar && !solDuvar){
 				moveBati(robotunYonu);
-				return 3;
+				robotunYonu = 3;
 			}else{
 				moveGuney(robotunYonu);
-				return 1;
+				robotunYonu = 1;
 			}
 			break;
 
@@ -278,18 +276,17 @@ int isiniTakipEt(int robotunYonu){
 			*/
 			if(!sagDuvar){
 				moveKuzey(robotunYonu);
-				return 2;
+				robotunYonu = 2;
 			}else if(!onDuvar){
 				moveBati(robotunYonu);
-				return 3;
+				robotunYonu = 3;
 			}else if(sagDuvar && onDuvar && !solDuvar){
 				moveGuney(robotunYonu);
-				return 1;
+				robotunYonu = 1;
 			}else{
 				moveDogu(robotunYonu);
-				return 0;
+				robotunYonu = 0;
 			}					
 			break;
 	}
-
-}
+	return robotunYonu;
