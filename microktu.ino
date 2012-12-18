@@ -1,6 +1,6 @@
 int robotunYonu  = 0; // Robotun bulundugu konuma gore yonu
 int hedefBulundu = 0; // Hedefin bulunduguna dair degisken
-int algoritmaSecenek = 0; // 0 dalga-sag duvar, 1 sag duvar, 2 special
+int algoritmaSecenek = 2; // 0 dalga-sag duvar, 1 sag duvar, 2 special
 
 /* Robotun ana omurgasi */
 void setup(){
@@ -53,7 +53,6 @@ void loop(){
 	}
 
 	}else if(algoritmaSecenek == 2){ // lee'den bozma algoritma
-		int robotunYonu = 0;
 		while(!hedefBulundu){
 
 			if(hedefBul()){
