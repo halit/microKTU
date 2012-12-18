@@ -35,31 +35,32 @@ void loop(){
 			
 				if(!sagDuvar()){
 					sagaDon();
-					moveIleri();
+					moveIleri(robotunYonu);
 
 				}else if(!onDuvar()){
-					moveIleri();
+					moveIleri(robotunYonu);
 
 				}else if(!solDuvar()){
 					solaDon();
-					moveIleri();
+					moveIleri(robotunYonu);
 
 				}else if(sagDuvar && solDuvar && onDuvar){
 					geriyeDon();
-					moveIleri();
+					moveIleri(robotunYonu);
 				}
 			}
 		}
 	}
 
-	}else if(algoritmaSecenek == 2){ // special algoritma
+	}else if(algoritmaSecenek == 2){ // lee'den bozma algoritma
+		int robotunYonu = 0;
 		while(!hedefBulundu){
 
 			if(hedefBul()){
 				hedefBulundu = 1;
 				
 			}else{
-				isiniTakipEt();
+				robotunYonu = isiniTakipEt(robotunYonu);
 			}
 		}
 	}	

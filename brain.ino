@@ -51,9 +51,7 @@ void aciklariBul(int *aciklar){
 }
 
 /* Robotun yonune gore siradaki hareketi belirler */
-/* @TODO: if'leri else if haline getir */
-void siradakiHareket(int robotunYonu){
-	
+void siradakiHareket(int robotunYonu){	
 	/* Pointer ile kucukler dizisi esitleniyor 
 	   @ FIX: Calismayabilir.Kontrol et.
 	   @ TODO: simdikiKonumDegeri her donuste guncellenecek
@@ -208,23 +206,31 @@ void siradakiHareket(int robotunYonu){
 	}
 }
 
-/* Lee algoritmasi mantigi ile aynı algoritma */
-
-void isiniTakipEt(int robotunYonu){
+/* Lee algoritmasi mantigi ile aynı algoritma 
+   @FIX: robotunYonu guncellenecek
+*/
+int isiniTakipEt(int robotunYonu){
+	int solDuvar = solDuvar();
+	int sagDuvar = sagDuvar();
+	int onDuvar  = onDuvar();
 
 	switch(robotunYonu){
 		case 0:
 			/* Robotun yonu doguya dogru ise surekli olarak yukariya gitmeye calisir
 			   Eger sol kapali ise sirayla diger yonleri dener
 			*/
-			if(!solDuvar()){
+			if(!solDuvar){
 				moveKuzey(robotunYonu);
-			}else if(!onDuvar()){
+				return 2;
+			}else if(!onDuvar){
 				moveDogu(robotunYonu);
-			}else if(solDuvar() && onDuvar() && !sagDuvar()){
+				return 0;
+			}else if(solDuvar && onDuvar && !sagDuvar){
 				moveGuney(robotunYonu);
+				return 1;
 			}else{
 				moveBati(robotunYonu);
+				return 3;
 			}
 			break;
 
@@ -232,14 +238,18 @@ void isiniTakipEt(int robotunYonu){
 			/* Robotun yonu guneye dogru ise surekli olarak yukariya gitmeye calisir.
 			   Eger sol kapali ise sirayla diger yonleri dener
 			*/
-			if(!solDuvar()){
+			if(!solDuvar){
 				moveDogu(robotunYonu);
-			}else if(!onDuvar()){
+				return 0;
+			}else if(!onDuvar){
 				moveGuney(robotunYonu);
-			}else if(solDuvar() && onDuvar() && !sagDuvar()){
+				return 1;
+			}else if(solDuvar && onDuvar && !sagDuvar){
 				moveBati(robotunYonu);
+				return 3;
 			}else{
 				moveKuzey(robotunYonu);
+				return 2;
 			}
 			break;
 
@@ -247,14 +257,18 @@ void isiniTakipEt(int robotunYonu){
 			/* Robotun yonu kuzeye dogru ise surekli olarak saga gitmeye calisir.
 			   Eger sag kapali ise sirayla diger yonleri dener
 			*/
-			if(!sagDuvar()){
+			if(!sagDuvar){
 				moveDogu(robotunYonu);
-			}else if(!onDuvar()){
+				return 0;
+			}else if(!onDuvar){
 				moveKuzey(robotunYonu);
-			}else if(sagDuvar() && onDuvar() && !solDuvar()){
+				return 2;
+			}else if(sagDuvar && onDuvar && !solDuvar){
 				moveBati(robotunYonu);
+				return 3;
 			}else{
 				moveGuney(robotunYonu);
+				return 1;
 			}
 			break;
 
@@ -262,14 +276,18 @@ void isiniTakipEt(int robotunYonu){
 			/* Robotun yonu batiya dogru ise surekli olarak saga gitmeye calisir.
 			   Eger sag kapali ise sirayla diger yonleri dener
 			*/
-			if(!sagDuvar()){
+			if(!sagDuvar){
 				moveKuzey(robotunYonu);
-			}else if(!onDuvar()){
+				return 2;
+			}else if(!onDuvar){
 				moveBati(robotunYonu);
-			}else if(sagDuvar() && onDuvar() && !solDuvar()){
+				return 3;
+			}else if(sagDuvar && onDuvar && !solDuvar){
 				moveGuney(robotunYonu);
+				return 1;
 			}else{
 				moveDogu(robotunYonu);
+				return 0;
 			}					
 			break;
 	}
