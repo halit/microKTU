@@ -211,24 +211,25 @@ int isiniTakipEt(int robotunYonuAl){
 	int solDuvar = solDuvar();
 	int sagDuvar = sagDuvar();
 	int onDuvar  = onDuvar();
+	int robotunYonu = robotunYonuAl;
 
-	switch(robotunYonuAl){
+	switch(robotunYonu){
 		case 0:
 			/* Robotun yonu doguya dogru ise surekli olarak yukariya gitmeye calisir
 			   Eger sol kapali ise sirayla diger yonleri dener
 			*/
 			if(!solDuvar){
-				moveKuzey(robotunYonuAl);
-				robotunYonuAl = 2;
+				moveKuzey(robotunYonu);
+				robotunYonu = 2;
 			}else if(!onDuvar){
-				moveDogu(robotunYonuAl);
-				robotunYonuAl = 0;
+				moveDogu(robotunYonu);
+				robotunYonu = 0;
 			}else if(solDuvar && onDuvar && !sagDuvar){
-				moveGuney(robotunYonuAl);
-				robotunYonuAl = 1;
+				moveGuney(robotunYonu);
+				robotunYonu = 1;
 			}else{
-				moveBati(robotunYonuAl);
-				robotunYonuAl = 3;
+				moveBati(robotunYonu);
+				robotunYonu = 3;
 			}
 			break;
 
@@ -237,17 +238,17 @@ int isiniTakipEt(int robotunYonuAl){
 			   Eger sol kapali ise sirayla diger yonleri dener
 			*/
 			if(!solDuvar){
-				moveDogu(robotunYonuAl);
-				robotunYonuAl = 0;
+				moveDogu(robotunYonu);
+				robotunYonu = 0;
 			}else if(!onDuvar){
-				moveGuney(robotunYonuAl);
-				robotunYonuAl = 1;
+				moveGuney(robotunYonu);
+				robotunYonu = 1;
 			}else if(solDuvar && onDuvar && !sagDuvar){
-				moveBati(robotunYonuAl);
-				robotunYonuAl = 3;
+				moveBati(robotunYonu);
+				robotunYonu = 3;
 			}else{
-				moveKuzey(robotunYonuAl);
-				robotunYonuAl = 2;
+				moveKuzey(robotunYonu);
+				robotunYonu = 2;
 			}
 			break;
 
@@ -256,17 +257,17 @@ int isiniTakipEt(int robotunYonuAl){
 			   Eger sag kapali ise sirayla diger yonleri dener
 			*/
 			if(!sagDuvar){
-				moveDogu(robotunYonuAl);
-				robotunYonuAl = 0;
+				moveDogu(robotunYonu);
+				robotunYonu = 0;
 			}else if(!onDuvar){
-				moveKuzey(robotunYonuAl);
-				robotunYonuAl = 2;
+				moveKuzey(robotunYonu);
+				robotunYonu = 2;
 			}else if(sagDuvar && onDuvar && !solDuvar){
-				moveBati(robotunYonuAl);
-				robotunYonuAl = 3;
+				moveBati(robotunYonu);
+				robotunYonu = 3;
 			}else{
-				moveGuney(robotunYonuAl);
-				robotunYonuAl = 1;
+				moveGuney(robotunYonu);
+				robotunYonu = 1;
 			}
 			break;
 
@@ -275,18 +276,18 @@ int isiniTakipEt(int robotunYonuAl){
 			   Eger sag kapali ise sirayla diger yonleri dener
 			*/
 			if(!sagDuvar){
-				moveKuzey(robotunYonuAl);
-				robotunYonuAl = 2;
+				moveKuzey(robotunYonu);
+				robotunYonu = 2;
 			}else if(!onDuvar){
-				moveBati(robotunYonuAl);
-				robotunYonuAl = 3;
+				moveBati(robotunYonu);
+				robotunYonu = 3;
 			}else if(sagDuvar && onDuvar && !solDuvar){
-				moveGuney(robotunYonuAl);
-				robotunYonuAl = 1;
+				moveGuney(robotunYonu);
+				robotunYonu = 1;
 			}else{
-				moveDogu(robotunYonuAl);
-				robotunYonuAl = 0;
+				moveDogu(robotunYonu);
+				robotunYonu = 0;
 			}					
 			break;
 	}
-	return robotunYonuAl;
+	return robotunYonu;
