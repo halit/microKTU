@@ -1,7 +1,3 @@
-int robotunYonu  = 0; // Robotun bulundugu konuma gore yonu
-int hedefBulundu = 0; // Hedefin bulunduguna dair degisken
-int algoritmaSecenek = 2; // 0 dalga-sag duvar, 1 sag duvar, 2 special
-
 /* Robotun ana omurgasi */
 void setup(){
 	//sensorKontrol();
